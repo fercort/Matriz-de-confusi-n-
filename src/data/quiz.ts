@@ -1,0 +1,108 @@
+import { QuizQuestion } from '../types';
+
+export const QUIZ_QUESTIONS: QuizQuestion[] = [
+  {
+    id: 'q1',
+    conceptTag: 'Concepto Básico',
+    question: 'En la expresión "Falso Positivo", ¿qué significa exactamente la palabra "Positivo"?',
+    options: [
+      'Que el resultado fue una buena noticia para la persona.',
+      'Que la Inteligencia Artificial predijo que la condición o evento SÍ estaba presente.',
+      'Que la predicción fue matemáticamente correcta.',
+      'Que los datos tenían números positivos mayores que cero.',
+    ],
+    correctAnswerIndex: 1,
+    explanation: '¡Exacto! La 2ª palabra ("Positivo" o "Negativo") siempre indica lo que PREDIJO el modelo (Positivo = Dijo que SÍ). La 1ª palabra ("Verdadero" o "Falso") indica si la IA acertó o se equivocó.',
+  },
+  {
+    id: 'q2',
+    conceptTag: 'Falsos Positivos',
+    question: 'Si una alarma contra incendios suena a las 3:00 AM pero NO hay fuego (solo una mosca en el sensor), ¿qué tipo de resultado es?',
+    options: [
+      'Verdadero Positivo (VP)',
+      'Verdadero Negativo (VN)',
+      'Falso Positivo (FP) o Error Tipo I',
+      'Falso Negativo (FN) o Error Tipo II',
+    ],
+    correctAnswerIndex: 2,
+    explanation: '¡Correcto! La alarma gritó "¡FUEGO!" (Predijo Positivo), pero era falso (la realidad era Negativa). Eso es una Falsa Alarma = Falso Positivo (Error Tipo I).',
+  },
+  {
+    id: 'q3',
+    conceptTag: 'Falsos Negativos',
+    question: 'Un paciente tiene una infección bacteriana severa, pero el test rápido dice "Negativo: usted está completamente sano". ¿Qué ocurrió?',
+    options: [
+      'Un Falso Negativo (FN) o Error Tipo II: la enfermedad pasó inadvertida.',
+      'Un Falso Positivo (FP): el médico festejó antes de tiempo.',
+      'Un Verdadero Negativo (VN): porque el test dio negativo.',
+      'Un Verdadero Positivo (VP): porque detectó la salud.',
+    ],
+    correctAnswerIndex: 0,
+    explanation: '¡Así es! El test dijo "Negativo" (No tienes nada), pero era Falso (en realidad sí tenía la bacteria). Es un Falso Negativo y es sumamente peligroso porque el paciente no recibe tratamiento.',
+  },
+  {
+    id: 'q4',
+    conceptTag: 'Métricas',
+    question: 'Tienes una matriz con: VP = 80, VN = 10, FP = 0, FN = 10. ¿Cuál es la PRECISIÓN de este modelo? (Fórmula: VP / [VP + FP])',
+    options: [
+      '80% (0.80)',
+      '100% (1.00) porque no hubo ningún Falso Positivo.',
+      '50% (0.50)',
+      '90% (0.90)',
+    ],
+    correctAnswerIndex: 1,
+    explanation: '¡Brillante! Precisión = VP / (VP + FP) = 80 / (80 + 0) = 80 / 80 = 100%. De todas las veces que el modelo gritó "¡Positivo!", ¡acertó el 100% de las veces!',
+  },
+  {
+    id: 'q5',
+    conceptTag: 'Métricas',
+    question: 'Con la misma matriz anterior: VP = 80, FN = 20. Había 100 casos positivos reales. ¿Cuál es el RECALL (Sensibilidad)? (Fórmula: VP / [VP + FN])',
+    options: [
+      '100%',
+      '80% (80 de los 100 enfermos fueron detectados; se escaparon 20).',
+      '20%',
+      '60%',
+    ],
+    correctAnswerIndex: 1,
+    explanation: '¡Excelente! Recall = 80 / (80 + 20) = 80 / 100 = 80%. Detectó al 80% de los casos reales que existían.',
+  },
+  {
+    id: 'q6',
+    conceptTag: 'Precisión vs Recall',
+    question: '¿Por qué la "Exactitud" (Accuracy) puede ser muy engañosa cuando las clases están muy desbalanceadas?',
+    options: [
+      'Porque la exactitud no es un número matemático real.',
+      'Porque si el 99% de la población está sana, un modelo tonto que prediga "Sano" a todo el mundo tendrá 99% de exactitud sin haber detectado a ningún enfermo.',
+      'Porque la exactitud siempre da un resultado menor que cero.',
+      'Porque solo funciona si hay más de 1000 datos.',
+    ],
+    correctAnswerIndex: 1,
+    explanation: '¡La Paradoja de la Exactitud! Una IA perezosa que siempre diga "Todo en orden" parecerá genial por tener 99% de exactitud, pero su Recall será 0% y no servirá para nada.',
+  },
+  {
+    id: 'q7',
+    conceptTag: 'Concepto Básico',
+    question: 'En la fábula de Pedro y el Lobo, cuando el lobo real ataca el rebaño pero los campesinos NO le creen a Pedro pensando que no hay peligro, ¿qué error cometen los campesinos?',
+    options: [
+      'Falso Negativo (FN) / Error Tipo II: No creyeron que había peligro real.',
+      'Falso Positivo (FP) / Error Tipo I: Se alarmaron sin motivo.',
+      'Verdadero Positivo (VP): Salvaron a las ovejas.',
+      'Verdadero Negativo (VN): No había lobo.',
+    ],
+    correctAnswerIndex: 0,
+    explanation: '¡Exacto! Pensaron "No hay lobo" (Predicción Negativa), pero era Mentira/Falso (el lobo sí estaba ahí devorando ovejas). Peligro inadvertido = Falso Negativo.',
+  },
+  {
+    id: 'q8',
+    conceptTag: 'Precisión vs Recall',
+    question: 'Si estás creando un detector de tumores cancerígenos en radiografías, ¿qué métrica te interesa más priorizar y maximizar?',
+    options: [
+      'Recall (Sensibilidad), para evitar a toda costa que se escape un tumor sin diagnosticar (minimizar Falsos Negativos).',
+      'Especificidad, para que los médicos descansen.',
+      'Solo la velocidad en milisegundos.',
+      'Falsos Positivos, para asustar a más gente.',
+    ],
+    correctAnswerIndex: 0,
+    explanation: '¡Indispensable! En salud, un Falso Negativo puede costar una vida. Se prefiere un Recall altísimo (cercano a 100%) aunque tengamos que hacer pruebas adicionales a algunos Falsos Positivos.',
+  },
+];

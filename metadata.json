@@ -1,0 +1,6 @@
+{
+  "name": "MatrizLab: El Juego de la Matriz de Confusión",
+  "description": "Juego interactivo y didáctico para dominar la matriz de confusión, errores tipo I y II, precisión, recall y evaluación de IA en ciencia de datos.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
